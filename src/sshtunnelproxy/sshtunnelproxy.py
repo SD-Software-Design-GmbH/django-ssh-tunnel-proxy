@@ -15,7 +15,13 @@ def tunnel(remote_port: int = 0, local_port: int = 8000):
     ssh_tunnel = pexpect.spawn(
         f"ssh -NtR {remote_port}:localhost:{local_port} {settings.USER}@{settings.HOST}",
     )
-    ssh_tunnel.expect("password:")
+    index = ssh_tunnel.expect(
+        ["Are you sure you want to continue connecting", "password:"]
+    )
+    if index == 0:
+        ssh_tunnel.sendline("yes")
+        ssh_tunnel.expect("password:")
+
     ssh_tunnel.sendline(settings.PASSWORD)
 
     # We need to expect something to keep the tunnel open
