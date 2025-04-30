@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "django-ssh-tunnel-proxy"
-version = "1.0.3"
+version = "1.0.4"
 authors = [
   { name="Julian Bürklin", email="jb@software-design.de" },
 ]

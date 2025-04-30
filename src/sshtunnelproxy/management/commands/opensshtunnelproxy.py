@@ -43,10 +43,8 @@ class Command(BaseCommand):
         local_port = options.get("local_port")
         remote_port = options.get("remote_port")
 
-        if remote_port and (
-            remote_port < (min_port := settings.PORT_RANGE[0])
-            or remote_port > (max_port := settings.PORT_RANGE[1])
-        ):
+        min_port, max_port = settings.PORT_RANGE
+        if remote_port and (remote_port < min_port or remote_port > max_port):
             raise CommandError(f"Remote port must be between {min_port} and {max_port}")
 
         with tunnel(remote_port, local_port) as tunnelUrl:
