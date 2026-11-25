@@ -1,6 +1,8 @@
 # django-ssh-tunnel-proxy
 
-Opens an ssh tunnel so your local development server can be accessed remotely
+Opens an SSH tunnel so your local development server can be accessed remotely.
+
+[![PyPI](https://img.shields.io/pypi/v/django-ssh-tunnel-proxy.svg)](https://pypi.org/project/django-ssh-tunnel-proxy/) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Quick start
 1. Install with `pip install django-ssh-tunnel-proxy`
@@ -47,3 +49,7 @@ For this to work, you need a remote web server to reverse-proxy the tunneled por
 ## What else
 Make sure to add `SSH_TUNNEL_HOST` to your `ALLOWED_HOSTS`.  
 Also, `SESSION_COOKIE_SECURE = False` must be set, or else you won't be able to log in.
+
+---
+
+Maintained by [SD Software-Design GmbH](https://software-design.de) · [MIT License](LICENSE)
